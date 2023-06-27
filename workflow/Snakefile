@@ -1,0 +1,40 @@
+configfile: "config/config.yaml"
+
+include: "rules/common.smk"
+include: "rules/initial_setup.smk"
+include: "rules/map_reads.smk"
+include: "rules/process_bams.smk"
+include: "rules/dysgu.smk"
+include: "rules/sniffles.smk"
+include: "rules/pbsv.smk"
+include: "rules/svaba.smk"
+include: "rules/cutesv.smk"
+include: "rules/nanomonsv.smk"
+include: "rules/gatk.smk"
+include: "rules/lorax.smk"
+include: "rules/delly.smk"
+
+rule all:
+  input:
+    #expand("results/BAMS/{ref}/{sample}/genome/long/{ref}.{sample}.genome.long.sorted.bam.bai", ref=refs, sample=long_samples),
+    #expand("results/dysgu/{ref}/{ref}.merged.svs.vcf", ref=refs),
+    #expand("results/dysgu/{ref}/{sample}/{ref}.{sample}.re_geno.vcf", ref=refs, sample=long_samples),
+    #expand("results/dysgu/{ref}/{ref}.merged.re_geno.vcf", ref=refs),
+    #expand("results/dysgu/{ref}/{ref}.somatic.re_geno.vcf", ref=refs),
+    #expand("results/dysgu/{ref}/{sample}/{ref}.{sample}.somatic.re_geno.vcf", ref=refs, sample=tumor_list),
+    #expand("results/sniffles/{ref}/{sample}/{ref}.{sample}.svs.snf", ref=refs, sample=long_samples),
+    #expand("results/sniffles/{ref}/{ref}.multisample.vcf", ref=refs),
+    #expand("results/sniffles/{ref}/{ref}.somatic.vcf", ref=refs),
+    #expand("results/pbsv/{ref}/{ref}.var.vcf", ref=refs),
+    #expand("results/svaba/{ref}/{sample}/{ref}.{sample}.somatic.vcf", ref=refs, sample=tumor_list),
+    #expand("results/cutesv/{ref}/{sample}/{ref}.{sample}.svs.vcf", ref=refs, sample=samples),
+    #expand("results/nanomonsv/{ref}/{tumor}/{ref}.{tumor}.nanomonsv.result.txt", ref=refs, tumor=tumor_list),
+    #expand("results/gatk/{ref}/{tumor}/{ref}.{tumor}.called.seg", ref=refs, tumor=tumor_list),
+    #expand("results/gatk/{ref}/{tumor}/plots/{ref}.{tumor}_PlotModeledSegments.png", ref=refs, tumor=tumor_list),
+    #expand("results/gatk/{ref}/{tumor}/{ref}.{tumor}.denoised.png", ref=refs, tumor=tumor_list),
+    #expand("results/dysgu/{ref}/{tumor}/{ref}.{tumor}.somatic.vcf", ref=refs, tumor=tumor_list),
+    #expand("results/lorax/tithreads/{ref}/{tumor}/{ref}.{tumor}.tithreads.bed", ref=refs, tumor=tumor_list),
+    #expand("results/lorax/tithreads/{ref}/{tumor}/{ref}.{tumor}.tithreads.pdf", ref=refs, tumor=tumor_list),
+    #expand("results/lorax/telomere/{ref}/{sample}/{ref}.{sample}.telomere.svs.tsv", ref=refs, sample=samples),
+    #expand("results/delly/{ref}/{tumor}/{ref}.{tumor}.somatic.sv.bcf", ref=refs, tumor=tumor_list),
+    expand("results/sniffles/{ref}/{tumor}/{ref}.{tumor}.somatic.vcf", ref=refs, tumor=tumor_list),
