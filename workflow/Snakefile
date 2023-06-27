@@ -13,6 +13,7 @@ include: "rules/nanomonsv.smk"
 include: "rules/gatk.smk"
 include: "rules/lorax.smk"
 include: "rules/delly.smk"
+include: "rules/jasmine.smk"
 
 rule all:
   input:
@@ -37,4 +38,5 @@ rule all:
     #expand("results/lorax/tithreads/{ref}/{tumor}/{ref}.{tumor}.tithreads.pdf", ref=refs, tumor=tumor_list),
     #expand("results/lorax/telomere/{ref}/{sample}/{ref}.{sample}.telomere.svs.tsv", ref=refs, sample=samples),
     #expand("results/delly/{ref}/{tumor}/{ref}.{tumor}.somatic.sv.bcf", ref=refs, tumor=tumor_list),
-    expand("results/sniffles/{ref}/{tumor}/{ref}.{tumor}.somatic.vcf", ref=refs, tumor=tumor_list),
+    #expand("results/sniffles/{ref}/{tumor}/{ref}.{tumor}.somatic.vcf", ref=refs, tumor=tumor_list),
+    expand("results/jasmine/{ref}/{tumor}/{ref}.{tumor}.jasmine.merged.vcf", ref=refs, tumor=tumor_list),

@@ -60,8 +60,8 @@ def get_sorted_bam_genome_long(wildcards):
   return files
 
 def get_jasmine_input(wildcards):
-  delly = f"results/delly/{wildcards.ref}/{wildcards.tumor}/{wildcards.ref}.{wildcards.tumor}.somatic.sv.vcf"
+  delly = f"results/delly/{wildcards.ref}/{wildcards.tumor}/{wildcards.ref}.{wildcards.tumor}.somatic.vcf"
   dysgu = f"results/dysgu/{wildcards.ref}/{wildcards.tumor}/{wildcards.ref}.{wildcards.tumor}.somatic.vcf"
   nanomonsv = f"results/nanomonsv/{wildcards.ref}/{wildcards.tumor}/{wildcards.ref}.{wildcards.tumor}.nanomonsv.result.vcf"
   sniffles = f"results/sniffles/{wildcards.ref}/{wildcards.tumor}/{wildcards.ref}.{wildcards.tumor}.somatic.vcf"
-  return ",".join(delly, dysgu, nanomonsv, sniffles)
+  return ",".join([delly, dysgu, nanomonsv, sniffles])
