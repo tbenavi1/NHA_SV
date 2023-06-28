@@ -37,12 +37,12 @@ rule parse_sniffles:
   script:
     "../scripts/parse_sniffles.py"
 
-rule bcftools_private_sniffles:
-  input:
-    "results/sniffles/{ref}/{ref}.multisample.vcf"
-  output:
-    "results/sniffles/{ref}/{ref}.somatic.vcf"
-  params:
-    tumors=get_tumor_samples_sniffles,
-  shell:
-    "bcftools view --samples {params.tumors} -x {input} > {output}"
+#rule bcftools_private_sniffles:
+#  input:
+#    "results/sniffles/{ref}/{ref}.multisample.vcf"
+#  output:
+#    "results/sniffles/{ref}/{ref}.somatic.vcf"
+#  params:
+#    tumors=get_tumor_samples_sniffles,
+#  shell:
+#    "bcftools view --samples {params.tumors} -x {input} > {output}"

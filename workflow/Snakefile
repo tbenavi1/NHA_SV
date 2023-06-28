@@ -4,20 +4,22 @@ include: "rules/common.smk"
 include: "rules/initial_setup.smk"
 include: "rules/map_reads.smk"
 include: "rules/process_bams.smk"
+
+include: "rules/delly.smk"
 include: "rules/dysgu.smk"
-include: "rules/sniffles.smk"
-include: "rules/pbsv.smk"
-include: "rules/svaba.smk"
-include: "rules/cutesv.smk"
 include: "rules/nanomonsv.smk"
+include: "rules/sniffles.smk"
+include: "rules/jasmine.smk"
+
+include: "rules/cutesv.smk"
 include: "rules/gatk.smk"
 include: "rules/lorax.smk"
-include: "rules/delly.smk"
-include: "rules/jasmine.smk"
+include: "rules/pbsv.smk"
+include: "rules/svaba.smk"
 
 rule all:
   input:
-    #expand("results/BAMS/{ref}/{sample}/genome/long/{ref}.{sample}.genome.long.sorted.bam.bai", ref=refs, sample=long_samples),
+    expand(f"results/BAMS/{ref}/{{sample}}/{ref}.{{sample}}.sorted.bam.bai", sample=samples),
     #expand("results/dysgu/{ref}/{ref}.merged.svs.vcf", ref=refs),
     #expand("results/dysgu/{ref}/{sample}/{ref}.{sample}.re_geno.vcf", ref=refs, sample=long_samples),
     #expand("results/dysgu/{ref}/{ref}.merged.re_geno.vcf", ref=refs),
@@ -41,4 +43,4 @@ rule all:
     #expand("results/sniffles/{ref}/{tumor}/{ref}.{tumor}.somatic.vcf", ref=refs, tumor=tumor_list),
     #expand("results/jasmine/{ref}/{tumor}/{ref}.{tumor}.jasmine.merged.vcf", ref=refs, tumor=tumor_list),
     #expand("results/jasmine/{ref}/{ref}.ALL.jasmine.merged.vcf", ref=refs),
-    expand("results/delly/{ref}/{sample}/{ref}.{sample}.single.sv.bcf", ref=refs, sample=samples),
+    #expand("results/delly/{ref}/{sample}/{ref}.{sample}.single.sv.bcf", ref=refs, sample=samples),

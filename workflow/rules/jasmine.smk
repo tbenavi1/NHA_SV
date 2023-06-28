@@ -16,7 +16,7 @@ rule jasmine:
 
 rule jasmine_samples:
   input:
-    expand("results/jasmine/{{ref}}/{tumor}/{{ref}}.{tumor}.jasmine.merged.vcf", tumor=tumor_list),
+    expand("results/jasmine/{{ref}}/{tumor}/{{ref}}.{tumor}.jasmine.merged.vcf", tumor=tumors),
     ref=lambda wildcards: config["refs"][wildcards.ref]["genome"],
   output:
     "results/jasmine/{ref}/{ref}.ALL.jasmine.merged.vcf"

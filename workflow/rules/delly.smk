@@ -6,7 +6,7 @@ rule delly_lr:
   output:
     "results/delly/{ref}/{tumor}/{ref}.{tumor}.sv.bcf"
   shell:
-    "/home/rranallo-benavidez/software/delly_v1.1.6_linux_x86_64bit lr -o {output} -g {input.ref} {input.tumor} {input.control}"
+    "delly lr -o {output} -g {input.ref} {input.tumor} {input.control}"
 
 rule delly_lr_single:
   input:
@@ -15,7 +15,7 @@ rule delly_lr_single:
   output:
     "results/delly/{ref}/{sample}/{ref}.{sample}.single.sv.bcf"
   shell:
-    "/home/rranallo-benavidez/software/delly_v1.1.6_linux_x86_64bit lr -o {output} -g {input.ref} {input.sample}"
+    "delly lr -o {output} -g {input.ref} {input.sample}"
 
 rule delly_samples:
   output:
@@ -32,7 +32,7 @@ rule delly_filter:
   output:
     "results/delly/{ref}/{tumor}/{ref}.{tumor}.somatic.bcf"
   shell:
-    "/home/rranallo-benavidez/software/delly_v1.1.6_linux_x86_64bit filter -f somatic -o {output} -s {input.samples} {input.bcf}"
+    "delly filter -f somatic -o {output} -s {input.samples} {input.bcf}"
 
 rule delly_vcf:
   input:

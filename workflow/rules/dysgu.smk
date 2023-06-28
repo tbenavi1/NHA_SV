@@ -47,22 +47,22 @@ rule dysgu_merge2:
   shell:
     "dysgu merge {input} > {output}"
 
-rule bcftools_private:
-  input:
-    "results/dysgu/{ref}/{ref}.merged.re_geno.vcf"
-  output:
-    "results/dysgu/{ref}/{ref}.somatic.re_geno.vcf"
-  params:
-    tumors=get_tumor_samples,
-  shell:
-    "bcftools view --samples {params.tumors} -x {input} > {output}"
+#rule bcftools_private:
+#  input:
+#    "results/dysgu/{ref}/{ref}.merged.re_geno.vcf"
+#  output:
+#    "results/dysgu/{ref}/{ref}.somatic.re_geno.vcf"
+#  params:
+#    tumors=get_tumor_samples,
+#  shell:
+#    "bcftools view --samples {params.tumors} -x {input} > {output}"
 
-rule bcftools_split:
-  input:
-    "results/dysgu/{ref}/{ref}.somatic.re_geno.vcf"
-  output:
-    "results/dysgu/{ref}/{sample}/{ref}.{sample}.somatic.re_geno.vcf"
-  params:
-    tumor=get_tumor_sample,
-  shell:
-    "bcftools view --samples {params.tumor} -c1 {input} > {output}"
+#rule bcftools_split:
+#  input:
+#    "results/dysgu/{ref}/{ref}.somatic.re_geno.vcf"
+#  output:
+#    "results/dysgu/{ref}/{sample}/{ref}.{sample}.somatic.re_geno.vcf"
+#  params:
+#    tumor=get_tumor_sample,
+#  shell:
+#    "bcftools view --samples {params.tumor} -c1 {input} > {output}"

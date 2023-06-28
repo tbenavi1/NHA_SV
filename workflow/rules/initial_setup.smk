@@ -1,8 +1,8 @@
 rule bgzip_genome:
   input:
-    lambda wildcards: config["refs"][wildcards.ref]["genome"],
+    lambda wildcards: config["ref"][ref],
   output:
-    "results/Genome/{ref}/{ref}.genome.fna.gz",
+    f"results/Genome/{ref}/{ref}.genome.fna.gz",
   threads: 32
   shell:
     "bgzip -c {input} -@ {threads} > {output}"
