@@ -13,3 +13,16 @@ rule jasmine:
   threads: 32
   shell:
     "jasmine --comma_filelist file_list={params.files} out_file={output} --ignore_strand --dup_to_ins genome_file={input.ref} threads={threads} --normalize_type out_dir={params.out}"
+
+rule jasmine_samples:
+  input:
+    expand("results/jasmine/{{ref}}/{tumor}/{{ref}}.{tumor}.jasmine.merged.vcf", tumor=tumor_list),
+    ref=lambda wildcards: config["refs"][wildcards.ref]["genome"],
+  output:
+    "results/jasmine/{ref}/{ref}.ALL.jasmine.merged.vcf"
+  params:
+    files=get_jasmine_samples_input,
+    out="results/jasmine/{ref}/tmp"
+  threads: 32
+  shell:
+    "jasmine --comma_filelist file_list={params.files} out_file={output} --ignore_strand --dup_to_ins genome_file={input.ref} threads={threads} --normalize_type out_dir={params.out}"

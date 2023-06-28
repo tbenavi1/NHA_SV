@@ -8,6 +8,15 @@ rule delly_lr:
   shell:
     "/home/rranallo-benavidez/software/delly_v1.1.6_linux_x86_64bit lr -o {output} -g {input.ref} {input.tumor} {input.control}"
 
+rule delly_lr_single:
+  input:
+    ref=lambda wildcards: config["refs"][wildcards.ref]["genome"],
+    sample="results/BAMS/{ref}/{sample}/genome/long/{ref}.{sample}.genome.long.sorted.bam"
+  output:
+    "results/delly/{ref}/{sample}/{ref}.{sample}.single.sv.bcf"
+  shell:
+    "/home/rranallo-benavidez/software/delly_v1.1.6_linux_x86_64bit lr -o {output} -g {input.ref} {input.sample}"
+
 rule delly_samples:
   output:
     "results/delly/{ref}/{tumor}/{ref}.{tumor}.samples.tsv"

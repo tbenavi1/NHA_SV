@@ -6,6 +6,7 @@ refs:
   "CHM13v2": 
     genome: /scratch/mkyriakidou/ref/CHM13v2/chm13v2.0.fasta
 
+#guppy 6.4.6
 fastqs:
   "NHA_p1":
     ont:
@@ -16,6 +17,12 @@ fastqs:
   "NHA_E6E7_3_p40": 
     ont: 
       1: /labs/barthel/fastq_DoNotTouch/20230424_0924_3D_PAK72474_3914c8b9/guppy_6.4.6+ae70e8f/fastq_pass/NHA_E6E73_p40_BR_Whole_C1_OGL14_L66006_PAK72474_NoIndex_L001_Pass.fastq.gz
+
+#dorado 0.3.0
+ubams:
+  NHA_p1: /labs/barthel/fastq_DoNotTouch/20230424_0924_3F_PAK78455_fb2f0c71/dorado_0.3.0/NHA_Primary_p1_BR_Whole_C1_OGL14_L66007_PAK78455_NoIndex_L001_fb2f0c71.duplex.ubam
+  NHA_E6E7_3_p25: /labs/barthel/fastq_DoNotTouch/20230424_0924_1F_PAK72403_ce355ea4/dorado_0.3.0/NHA_E6E73_p25_BR_Whole_C1_OGL14_L66005_PAK72403_NoIndex_L001_ce355ea4.duplex.ubam
+  NHA_E6E7_3_p40: /labs/barthel/fastq_DoNotTouch/20230424_0924_3D_PAK72474_3914c8b9/dorado_0.3.0/NHA_E6E73_p40_BR_Whole_C1_OGL14_L66006_PAK72474_NoIndex_L001_3914c8b9.duplex.ubam
 
 bams:
   "NHA_E6E7_3_p25": /scratch/mkyriakidou/NHA/nha_analysis/BQSR/NHA_E6E7_3_p25/NHA_E6E7_3_p25_BQSR.bam
