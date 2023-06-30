@@ -1,7 +1,7 @@
 rule jasmine_intra_sample:
   input:
     delly=f"results/delly/{ref}/{{sample}}/{ref}.{{sample}}.sv.vcf",
-    dysgu=f"results/dysgu/{ref}/{{sample}}/{ref}.{{sample}}.sv.vcf",
+    dysgu=f"results/dysgu/{ref}/{{sample}}/{ref}.{{sample}}.converted.sv.vcf",
     #nanomonsv=f"results/nanomonsv/{ref}/{{sample}}/{ref}.{{sample}}.nanomonsv.result.vcf",
     sniffles=f"results/sniffles/{ref}/{{sample}}/{ref}.{{sample}}.sv.vcf",
     ref=config["ref"][ref],

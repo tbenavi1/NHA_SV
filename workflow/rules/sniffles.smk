@@ -8,7 +8,7 @@ rule sniffles:
     f"results/sniffles/{ref}/{{sample}}/{ref}.{{sample}}.sv.vcf"
   threads: 32
   shell:
-    "sniffles -i {input.bam} --vcf {output} --tandem-repeats {input.repeats} --reference {input.ref} --threads {threads}"
+    "sniffles --minsvlen 30 --mapq 20 -i {input.bam} --vcf {output} --tandem-repeats {input.repeats} --reference {input.ref} --threads {threads}"
 
 rule sniffles_genotype_sample:
   input:
@@ -20,4 +20,4 @@ rule sniffles_genotype_sample:
     f"results/sniffles/{ref}.{{sample}}/{ref}.{{sample}}.geno.vcf"
   threads: 32
   shell:
-    "sniffles --input {input.bam} --genotype-vcf {input.sites} --vcf {output} --tandem-repeats {input.repeats} --reference {input.ref} --threads {threads}"
+    "sniffles --minsvlen 30 --mapq 20 --input {input.bam} --genotype-vcf {input.sites} --vcf {output} --tandem-repeats {input.repeats} --reference {input.ref} --threads {threads}"

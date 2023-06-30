@@ -21,7 +21,8 @@ rule all:
   input:
     expand(f"results/BAMS/{ref}/{{sample}}/{ref}.{{sample}}.sorted.bam.bai", sample=samples),
     expand(f"results/delly/{ref}/{{sample}}/{ref}.{{sample}}.sv.vcf", sample=samples),
-    expand(f"results/dysgu/{ref}/{{sample}}/{ref}.{{sample}}.sv.vcf", sample=samples),
+    #expand(f"results/dysgu/{ref}/{{sample}}/{ref}.{{sample}}.sv.vcf", sample=samples),
+    expand(f"results/dysgu/{ref}/{{sample}}/{ref}.{{sample}}.converted.sv.vcf", sample=samples),
     #expand(f"results/nanomonsv/{ref}/{{sample}}/{ref}.{{sample}}.nanomonsv.result.vcf", sample=samples),
     expand(f"results/sniffles/{ref}/{{sample}}/{ref}.{{sample}}.sv.vcf", sample=samples),
     expand(f"results/jasmine/{ref}/{{sample}}/{ref}.{{sample}}.jasmine.merged.sv.vcf", sample=samples),

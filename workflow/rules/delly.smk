@@ -6,7 +6,7 @@ rule delly_lr:
   output:
     f"results/delly/{ref}/{{sample}}/{ref}.{{sample}}.sv.vcf"
   shell:
-    "delly lr -o {output} -g {input.ref} {input.sample}"
+    "delly lr -y pb -q 20 -o {output} -g {input.ref} {input.sample}"
 
 rule delly_genotype_sample:
   input:
@@ -16,4 +16,4 @@ rule delly_genotype_sample:
   output:
     f"results/delly/{ref}/{{sample}}/{ref}.{{sample}}.geno.vcf"
   shell:
-    "delly lr -o {output} -g {input.ref} -v {input.sites} {input.sample}"
+    "delly lr -y pb -q 20 -o {output} -g {input.ref} -v {input.sites} {input.sample}"
