@@ -25,8 +25,8 @@ rule all:
     #expand(f"results/nanomonsv/{ref}/{{sample}}/{ref}.{{sample}}.nanomonsv.result.vcf", sample=samples),
     expand(f"results/sniffles/{ref}/{{sample}}/{ref}.{{sample}}.sv.vcf", sample=samples),
     expand(f"results/jasmine/{ref}/{{sample}}/{ref}.{{sample}}.jasmine.merged.sv.vcf", sample=samples),
-    #expand(f"results/delly/{ref}/{{sample}}/{ref}.{{sample}}.geno.vcf", sample=samples),
-    #expand(f"results/dysgu/{ref}/{{sample}}/{ref}.{{sample}}.geno.vcf", sample=samples),
-    #expand(f"results/sniffles/{ref}.{{sample}}/{ref}.{{sample}}.geno.vcf", sample=samples),
+    expand(f"results/delly/{ref}/{{sample}}/{ref}.{{sample}}.geno.vcf", sample=samples),
+    expand(f"results/dysgu/{ref}/{{sample}}/{ref}.{{sample}}.converted.geno.vcf", sample=samples),
+    expand(f"results/sniffles/{ref}/{{sample}}/{ref}.{{sample}}.geno.vcf", sample=samples),
 
     #f"results/jasmine/{ref}/{ref}.ALL.somatic.jasmine.merged.sv.vcf",

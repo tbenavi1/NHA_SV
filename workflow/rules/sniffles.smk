@@ -17,7 +17,7 @@ rule sniffles_genotype_sample:
     repeats=repeats,
     ref=config["ref"][ref]
   output:
-    f"results/sniffles/{ref}.{{sample}}/{ref}.{{sample}}.geno.vcf"
+    f"results/sniffles/{ref}/{{sample}}/{ref}.{{sample}}.geno.vcf"
   threads: 32
   shell:
     "sniffles --minsvlen 30 --mapq 20 --input {input.bam} --genotype-vcf {input.sites} --vcf {output} --tandem-repeats {input.repeats} --reference {input.ref} --threads {threads}"

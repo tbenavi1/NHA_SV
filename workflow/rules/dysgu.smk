@@ -33,3 +33,12 @@ rule dysgu_genotype_sample:
   threads: 32
   shell:
     "dysgu call --mode pacbio --min-support 3 -p {threads} --ibam {input.bam} --sites {input.sites} {input.ref} {params.tmp} {params.dysgu_bam} > {output}"
+
+rule dysgu_genotype_convert2bnd:
+  input:
+    ref=config["ref"][ref],
+    vcf=f"results/dysgu/{ref}/{{sample}}/{ref}.{{sample}}.geno.vcf"
+  output:
+    f"results/dysgu/{ref}/{{sample}}/{ref}.{{sample}}.converted.geno.vcf"
+  shell:
+    "python ~/software/convert2bnd.py -t TRA {input.ref} {input.vcf} > {output}"
